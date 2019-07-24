@@ -1,6 +1,6 @@
 <template>
-  <div class="inputLogin">
-    <h2>Login</h2>
+  <div id="explorePage">
+    <h2>register</h2>
     <div>
       <span>id:</span>
       <input type="text" name="username" id="username" v-model="username" />
@@ -10,7 +10,7 @@
       <input type="text" name="password" id="password" v-model="password" />
     </div>
     <div>
-      <input type="button" value="login" @click="doLogin" />
+      <input type="button" value="Register" @click="doRegister" />
     </div>
     <div>{{ resData }}</div>
   </div>
@@ -28,10 +28,11 @@ export default {
     };
   },
   methods: {
-    doLogin() {
+    doRegister() {
       axios({
         method: "post",
-        url: "http://api.primeplusglobal.com:1337/login",
+        url: "http://api.primeplusglobal.com:1337/register",
+        // url: "http://localhost:1337/register",
         responseType: "json",
         data: {
           username: this.username,
@@ -39,12 +40,13 @@ export default {
         }
       })
         .then(res => {
-          this.resData = res.data;
+          console.log(res);
+          this.$router.push("Login");
         })
         .catch(err => {
           this.resData = "ERROR: " + err.data;
         });
-    },
+    }
   }
 };
 </script>
