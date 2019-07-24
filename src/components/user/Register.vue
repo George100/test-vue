@@ -44,7 +44,7 @@ export default {
           this.$router.push("Login");
         })
         .catch(err => {
-          this.resData = "ERROR: " + err.data;
+          this.resData = "ERROR: " + err;
         });
     }
   }
