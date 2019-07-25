@@ -17,7 +17,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+import { apiPOST_User } from "@/js/axiosAPI.js";
 
 export default {
   data() {
@@ -29,18 +29,14 @@ export default {
   },
   methods: {
     doRegister() {
-      axios({
-        method: "post",
-        url: "http://api.primeplusglobal.com:1337/register",
-        // url: "http://localhost:1337/register",
-        responseType: "json",
-        data: {
-          username: this.username,
-          password: this.password
-        }
-      })
+      const url = "register";
+      const data = {
+        username: this.username,
+        password: this.password
+      };
+
+      apiPOST_User(url, data)
         .then(res => {
-          console.log(res);
           this.$router.push("Login");
         })
         .catch(err => {
