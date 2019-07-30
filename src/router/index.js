@@ -4,6 +4,7 @@ import Explore from '@/components/explore'
 import Login from '@/components/user/Login'
 import Register from '@/components/user/Register'
 import UsersReport from '@/components/user/UsersReport'
+import Report from '@/components/user/Report'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/usersreport',
       name: 'UsersReport',
       component: UsersReport
+    },
+    {
+      path: '/report',
+      name: 'Report',
+      component: Report
     }
   ]
 })

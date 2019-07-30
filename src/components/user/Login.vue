@@ -38,6 +38,8 @@ export default {
       apiPOST_User(url, data)
         .then(res => {
           this.resData = res.data;
+          localStorage.token = res.data.token;
+          this.$router.push("/");
         })
         .catch(err => {
           this.resData = "ERROR: " + err;

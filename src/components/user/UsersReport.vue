@@ -4,7 +4,7 @@
       <tr>
         <th v-for="(item,index) in tableHeader">{{item}}</th>
       </tr>
-      <tr v-for="(item2,index) in userData">
+      <tr v-for="(item2,index) in userData"  v-if="userData.length > 0">
         <td>{{item2.id}}</td>
         <td>{{item2.username}}</td>
         <td>{{item2.password}}</td>
